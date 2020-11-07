@@ -2,6 +2,8 @@
   position: absolute;
   top: 50px;
   left: 720px;
+  border: solid 1px;
+  padding: 5px 5px 5px 5px;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:ital,wght@1,100&display=swap");
@@ -17,9 +19,7 @@
   width: 195px;
   margin: 15px;
   height: 60px;
-
 }
-
 
 .ball {
   background-color: black;
@@ -31,7 +31,6 @@
   width: 50px;
   border-radius: 25px;
 }
-
 
 .hole {
   background-color: rgb(62, 85, 107);

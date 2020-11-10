@@ -26,25 +26,28 @@ class Timer extends React.Component {
   }
 
   renderChoice() {
-    if (this.state.renderBall) {
-      return (
-        <div>
-          <div className="ball" style={this.state.ballPosition}></div>
-          <div className="hole"></div>
-          <div className="heading-timer">{this.state.time}</div>
-        </div>
-      );
-    } else
-      return (
+    return (
+      <div>
+        <div className="ball" style={this.state.ballPosition}></div>
+        <div className="hole"></div>
+        <div className="heading-timer">{this.state.time}</div>
+
         <div className="ballProvider" onClick={this.buttonClickHandler}>
           Click For Start
         </div>
-      );
+      </div>
+    );
   }
+
   componentDidMount() {
     document.addEventListener("keydown", this.handleKey);
-    this.interval = setInterval(() => this.currentTime(), 1000);
+    this.interval = setInterval(() => {
+      if (this.state.renderBall) {
+        this.currentTime();
+      }
+    }, 1000);
   }
+
   handleKey(event) {
     if (event.keyCode === 39) {
       this.setState({ x: this.state.x + 5 }, () =>

@@ -49,30 +49,44 @@ class Timer extends React.Component {
   }
 
   handleKey(event) {
-    if (event.keyCode === 39) {
-      this.setState({ x: this.state.x + 5 }, () =>
-        this.setState({
-          ballPosition: { left: this.state.x + "px", top: this.state.y + "px" }
-        })
-      );
-    } else if (event.keyCode === 40) {
-      this.setState({ y: this.state.y + 5 }, () =>
-        this.setState({
-          ballPosition: { left: this.state.x + "px", top: this.state.y + "px" }
-        })
-      );
-    } else if (event.keyCode === 38) {
-      this.setState({ y: this.state.y - 5 }, () =>
-        this.setState({
-          ballPosition: { left: this.state.x + "px", top: this.state.y + "px" }
-        })
-      );
-    } else if (event.keyCode === 37) {
-      this.setState({ x: this.state.x - 5 }, () =>
-        this.setState({
-          ballPosition: { left: this.state.x + "px", top: this.state.y + "px" }
-        })
-      );
+    if (this.state.renderBall) {
+      if (event.keyCode === 39) {
+        this.setState({ x: this.state.x + 5 }, () =>
+          this.setState({
+            ballPosition: {
+              left: this.state.x + "px",
+              top: this.state.y + "px"
+            }
+          })
+        );
+      } else if (event.keyCode === 40) {
+        this.setState({ y: this.state.y + 5 }, () =>
+          this.setState({
+            ballPosition: {
+              left: this.state.x + "px",
+              top: this.state.y + "px"
+            }
+          })
+        );
+      } else if (event.keyCode === 38) {
+        this.setState({ y: this.state.y - 5 }, () =>
+          this.setState({
+            ballPosition: {
+              left: this.state.x + "px",
+              top: this.state.y + "px"
+            }
+          })
+        );
+      } else if (event.keyCode === 37) {
+        this.setState({ x: this.state.x - 5 }, () =>
+          this.setState({
+            ballPosition: {
+              left: this.state.x + "px",
+              top: this.state.y + "px"
+            }
+          })
+        );
+      }
     }
 
     if (
@@ -80,6 +94,7 @@ class Timer extends React.Component {
       this.state.ballPosition.top == "250px"
     ) {
       this.componentWillUnmount();
+      this.setState({ renderBall: false });
     }
   }
 
